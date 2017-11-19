@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Ad extends Model
 {
@@ -10,8 +11,8 @@ class Ad extends Model
 
     protected $fillable = ['title', 'description', 'user_id'];
 
-    public function getUser()
+    public function user()
     {
-        return $this->hasMany('App\User', 'user_id', 'id');
+        return $this->belongsTo(User::class);
     }
 }

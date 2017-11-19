@@ -30,6 +30,7 @@
                 </div>
 
                 <input type="hidden" name = "user_id" value="1">
+                {{--this is wrong and just for testing--}}
 
                 <div class="form-group">
                     <label for="inputDescription">Description</label>
@@ -53,11 +54,6 @@
         </div>
         <div class="col-md-6"></div>
     </div>
-
-
-
-
-
 
 </div>
 

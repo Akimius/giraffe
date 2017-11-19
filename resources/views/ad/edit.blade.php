@@ -14,7 +14,7 @@
 
     <div class="row">
         <div class="col-md-6">
-            <form method="post" action="{{ route('ads.edit', $ad->id) }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('ads.update', $ad->id) }}" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="inputTitle">Title</label>
                     <input type="text" name="title" class="form-control" id="inputTitle" placeholder="Title"
@@ -27,7 +27,6 @@
                 </span>
                     @endif
                 </div>
-
 
                 <div class="form-group">
                     <label for="inputDescription">Description</label>
