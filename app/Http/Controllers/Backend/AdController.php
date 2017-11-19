@@ -88,7 +88,18 @@ class AdController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $this->validate($request, [
+            'title' => 'required|max:60',
+            'description' => 'required'
+        ]);
+
+        $ad = Ad::find($id);
+
+        $ad->update($data);
+
+        return redirect('/');
     }
 
     /**
