@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @include('layouts.styles')
-    <title>Create</title>
+    <title>Edit</title>
 </head>
 <body>
 <div class="container">
@@ -14,12 +14,11 @@
 
     <div class="row">
         <div class="col-md-6">
-            <form method="POST" action="{{ url( '/ads') }}" >
-
+            <form method="post" action="{{ route('ads.edit', $ad->id) }}" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="inputTitle">Title</label>
                     <input type="text" name="title" class="form-control" id="inputTitle" placeholder="Title"
-                           value="{{ old('title') }}">
+                           value="{{ $ad->title }}">
                     @if ($errors->has('title'))
                         <span class="help-block">
                     <strong class="text-danger">
@@ -29,13 +28,11 @@
                     @endif
                 </div>
 
-                <input type="hidden" name = "user_id" value="1">
 
                 <div class="form-group">
                     <label for="inputDescription">Description</label>
                     <textarea name="description" id="inputDescription" cols="30" rows="10"
-                              class="form-control">{{ old('description') }}
-                </textarea>
+                              class="form-control">{{ $ad->description }}</textarea>
                     @if ($errors->has('description'))
                         <span class="help-block">
                     <strong class="text-danger">
@@ -47,15 +44,13 @@
 
                 {{ csrf_field() }}
 
-                <button type="submit" class="btn btn-info">CREATE</button>
+                <input type="hidden" name="_method" value="patch">
 
+                <button type="submit" class="btn btn-info">UPDATE</button>
             </form>
         </div>
         <div class="col-md-6"></div>
     </div>
-
-
-
 
 
 

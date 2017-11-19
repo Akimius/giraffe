@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ad extends Model
 {
-    public $timestamps = false;
+    // public $timestamps = false; // just in case created at and updated at not required
 
-    protected $fillable = ['title', 'description'];
+    protected $fillable = ['title', 'description', 'user_id'];
 
     public function getUser()
     {

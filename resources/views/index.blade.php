@@ -51,7 +51,7 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">{{ $ad->title }}</div>
                 <div class="panel-body">
-                    <a href="/{{ $ad->id }}/edit">
+                    <a href="/ads/{{ $ad->id }}/edit">
                         <i class="glyphicon glyphicon-pencil"></i>
                     </a>
                     <img src="http://giraffesoftware.com/img/logo.svg"

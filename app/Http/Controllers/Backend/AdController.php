@@ -72,9 +72,10 @@ class AdController extends Controller
      */
     public function edit($id)
     {
-        $ads = Ad::find($id);
+        $ad = Ad::find($id);
+
         return view('ad.edit', [
-            'adslist' => $ads
+            'ad' => $ad
         ]);
     }
 
