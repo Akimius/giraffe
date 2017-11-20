@@ -49,7 +49,7 @@
 
         <div class="col-sm-4">
             <div class="panel panel-primary">
-                <div class="panel-heading">{{ $ad->title }}</div>
+                <div class="panel-heading"><strong>Advertising title: </strong>{{ $ad->title }}</div>
                 <div class="panel-body">
                     <a href="/ads/{{ $ad->id }}/edit">
                         <i class="glyphicon glyphicon-pencil"></i>
@@ -57,7 +57,9 @@
                     <img src="http://giraffesoftware.com/img/logo.svg"
                          class="img-responsive" style="width:100%" alt="giraffe">
                 </div>
-                <div class="panel-footer">{{ $ad->description }}</div>
+                <div class="panel-footer"> <strong>Advertising description: </strong> {{ $ad->description }}</div>
+                <div class="panel-footer"><strong>Author: </strong>{{ $ad->user->name }},
+                    <strong>Created at: </strong>{{ $ad->created_at }}</div>
 
 
                 <div class="panel-footer">
