@@ -85,6 +85,8 @@
 </div>
 <br><br>
 
+{{ $adslist ->fragment('foo')->links() }}
+
 @include('layouts.footer')
 @include('layouts.scripts')
 

@@ -11,8 +11,8 @@ class DefaultController extends Controller
 {
     public function index()
     {
-
-        $ads = Ad::all();
+        // $ads = Ad::all();
+        $ads = Ad::paginate(5);
 
         return view('index', [
             'adslist' => $ads,
