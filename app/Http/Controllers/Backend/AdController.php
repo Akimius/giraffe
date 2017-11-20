@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Ad;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class AdController extends Controller
 {
@@ -40,15 +42,21 @@ class AdController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-
+        // $data = $request->all();
         $this->validate($request, [
             'title' => 'required|max:60',
             'description' => 'required|max:60',
 
         ]);
 
-        Ad::create($data);
+        $ad = new Ad();
+        $ad->title = $request->get('title');
+        $ad->description  = $request->get('description');
+
+        $ad->user()->associate(auth()->user());
+        $ad->save();
+
+        // Ad::create($ad);
 
         return redirect('/');
     }

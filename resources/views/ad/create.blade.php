@@ -29,7 +29,7 @@
                     @endif
                 </div>
 
-                <input type="hidden" name = "user_id" value="{{auth()->user()->id}}">
+
                 {{--this is wrong and just for testing--}}
 
                 <div class="form-group">
