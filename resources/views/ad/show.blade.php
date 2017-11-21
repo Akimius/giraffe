@@ -43,31 +43,36 @@
                     <div class="panel-heading"><strong>Advertising title: </strong>
                         <a href="{{ route('ads.show', $ad->id) }}" class="btn btn-warning">{{ $ad->title }}</a>
                     </div>
-                    <div class="panel-body">
-                        <a href="/ads/{{ $ad->id }}/edit">
-                            <i class="glyphicon glyphicon-pencil"></i>
-                        </a>
+
+                        @if(Auth::id() == $ad->user->id)
+                        <div class="panel-body">
+                            <a href="/ads/{{ $ad->id }}/edit">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            </a>
+                        </div>
+                        @endif
                         <img src="http://giraffesoftware.com/img/logo.svg"
                              class="img-responsive" style="width:100%" alt="giraffe">
-                    </div>
+
                     <div class="panel-footer"> <strong>Advertising description: </strong> {{ $ad->description }}</div>
                     <div class="panel-footer"><strong>Author: </strong>{{ $ad->user->name }},
-                        <strong>Created at: </strong>{{ $ad->created_at }}</div>
-
-                    <div class="panel-footer">
-
-                        <a href="{{ $ad->id }}" onclick="event.preventDefault();
-                                            this.children[0].submit();">
-                            <form action="{{ route('ads.destroy', $ad->id) }}" method="POST" style="display: none;">
-                                {{ csrf_field() }}
-                                <input type="hidden" name="_method" value="delete">
-                            </form>
-
-                            <button type="button" class="btn btn-danger">DELETE Ad</button>
-                        </a>
-
+                        <strong>Created at: </strong>{{ $ad->created_at }}
                     </div>
 
+                    @if(Auth::id() == $ad->user->id)
+                        <div class="panel-footer">
+
+                            <a href="{{ $ad->id }}" onclick="event.preventDefault();
+                                                this.children[0].submit();">
+                                <form action="{{ route('ads.destroy', $ad->id) }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="_method" value="delete">
+                                </form>
+                                <button type="button" class="btn btn-danger">DELETE Ad</button>
+                            </a>
+
+                        </div>
+                    @endif
 
                 </div>
             </div>
