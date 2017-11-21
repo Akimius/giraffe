@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="stylesheet" href="../../../css/giraffe.css">
 
     @include('layouts.styles')
 
@@ -49,11 +50,13 @@
 
         <div class="col-sm-4">
             <div class="panel panel-primary">
-                <div class="panel-heading"><strong>Advertising title: </strong>{{ $ad->title }}</div>
+                <div class="panel-heading"><strong>Advertising title: </strong>
+                     <a href="{{ route('ads.show', $ad->id) }}" class="btn btn-warning">{{ $ad->title }}</a>
+                </div>
                 <div class="panel-body">
-                    <a href="/ads/{{ $ad->id }}/edit">
+{{--                    <a href="/ads/{{ $ad->id }}/edit">
                         <i class="glyphicon glyphicon-pencil"></i>
-                    </a>
+                    </a>--}}
                     <img src="http://giraffesoftware.com/img/logo.svg"
                          class="img-responsive" style="width:100%" alt="giraffe">
                 </div>
@@ -61,9 +64,7 @@
                 <div class="panel-footer"><strong>Author: </strong>{{ $ad->user->name }},
                     <strong>Created at: </strong>{{ $ad->created_at }}</div>
 
-
-                <div class="panel-footer">
-
+{{--                <div class="panel-footer">
                     <a href="{{ $ad->id }}" onclick="event.preventDefault();
                                             this.children[0].submit();">
                         <form action="{{ route('ads.destroy', $ad->id) }}" method="POST" style="display: none;">
@@ -73,10 +74,7 @@
 
                         <button type="button" class="btn btn-danger">DELETE Ad</button>
                     </a>
-
-                </div>
-
-
+                </div>--}}
             </div>
         </div>
 
