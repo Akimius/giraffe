@@ -45,7 +45,7 @@
 
                 <input type="hidden" name="_method" value="patch">
 
-                <button type="submit" class="btn btn-info">UPDATE</button>
+                <button type="submit" class="btn btn-info">SAVE</button>
             </form>
         </div>
         <div class="col-md-6"></div>

@@ -13,11 +13,28 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li><a href="{{ url('/') }}">Home</a></li>
-                <li class="active"><a href="{{ url('/ads/create') }}">Create Ad</a></li>
+
+                @if(Auth::user())
+                    <li class="active">
+                        <a href="{{ url('/ads/create') }}">Create Ad</a>
+                    </li>
+                @endif
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ url('/login') }}"><span class="glyphicon glyphicon-user"></span> Login/Register </a></li>
-
+                @if(Auth::user())
+                <li>
+                    <a href="{{ url('/login') }}"><span class="glyphicon glyphicon-user"></span> {{Auth::user()->name}}</a>
+                </li>
+                    <li>
+                        <a href="{{ url('/logout') }}"><span class="glyphicon glyphicon-log-out"></span> LOGOUT</a>
+                    </li>
+                @endif
+                    @if(!Auth::user())
+                        <li>
+                            <a href="{{ url('/login') }}"><span class="glyphicon glyphicon-user"></span> Login/Register </a>
+                        </li>
+                    @endif
             </ul>
         </div>
     </div>

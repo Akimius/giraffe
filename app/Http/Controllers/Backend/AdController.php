@@ -58,7 +58,7 @@ class AdController extends Controller
 
         // Ad::create($ad);
 
-        return redirect('/');
+        return redirect('ads/'.$ad->id);
     }
 
     /**

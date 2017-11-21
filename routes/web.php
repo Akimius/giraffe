@@ -19,3 +19,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/ads', 'Backend\AdController');
+
+Route::get('/logout' , 'Auth\LoginController@logout');

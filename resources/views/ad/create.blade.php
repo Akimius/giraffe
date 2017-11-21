@@ -29,9 +29,6 @@
                     @endif
                 </div>
 
-
-                {{--this is wrong and just for testing--}}
-
                 <div class="form-group">
                     <label for="inputDescription">Description</label>
                     <textarea name="description" id="inputDescription" cols="30" rows="10"
