@@ -10,7 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\Models\Ad;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', "Frontend\DefaultController@index");
 
@@ -18,6 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/ads', 'Backend\AdController');
+Route::resource('/ads', 'Backend\AdController')->middleware('auth');
 
 Route::get('/logout' , 'Auth\LoginController@logout');
