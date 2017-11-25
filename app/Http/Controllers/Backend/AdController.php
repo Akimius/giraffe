@@ -46,7 +46,6 @@ class AdController extends Controller
         $this->validate($request, [
             'title' => 'required|max:60',
             'description' => 'required|max:60',
-
         ]);
 
         $ad = new Ad();
@@ -83,6 +82,11 @@ class AdController extends Controller
     public function edit($id)
     {
         $ad = Ad::find($id);
+
+        // Check if the auth user posted the very same ad
+        if(auth()->user()->id !== $ad->user_id){
+            return redirect('ads/'. $ad->id)->with('error', 'Page not authorized');
+        }
 
         return view('ad.edit', [
             'ad' => $ad
@@ -121,6 +125,11 @@ class AdController extends Controller
     public function destroy($id)
     {
         $ad = Ad::find($id);
+
+        // Check if the auth user posted the very same ad and can delete it
+        if(auth()->user()->id !== $ad->user_id){
+            return redirect('/')->with('error', 'Page not authorized');
+        }
 
         $ad->delete();
 

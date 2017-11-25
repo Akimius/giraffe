@@ -33,8 +33,15 @@
 </head>
 <body>
 
-
 @include('layouts.nav')
+
+<span class="help-block">
+    <strong class="text-danger">
+    @if($errors->any())
+            <h4>{{$errors->first()}}</h4>
+     @endif
+    </strong>
+</span>
 
 <div class="container">
     <div class="row" >
